@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+    min-height: 100%;
+}
+body {
+    height: 100%;
+    overflow: hidden;
+}
+#map {
+    height: 100%;
+    margin-right: 400px;
+}
+
+.tower-balloon {
+    overflow: hidden;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+
+.tower-balloon:last-child {
+    border-bottom: none;
+}
+
+.tower-balloon .tower-balloon-left {
+    float: left;
+    width: 75px;
+}
+.tower-balloon .tower-balloon-right {
+    float: right;
+    width: 100px;
+}
+
+#stats {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
+    height: 75px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #e8e8e8;
+    padding: 20px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#controls {
+    position: absolute;
+    height: 100%;
+    width: 400px;
+    right: 0;
+    top: 0;
+    background-color: #efefef;
+    -moz-box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
