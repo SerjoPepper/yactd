@@ -153,7 +153,7 @@
 
         selectableTower: function () {
             this.placemark.options.set({
-                overlayFactory: ymaps.geoObject.overlayFactory.interactiveGraphics,
+//                overlayFactory: ymaps.geoObject.overlayFactory.interactiveGraphics,
                 zIndex: 5000
             });
         },
