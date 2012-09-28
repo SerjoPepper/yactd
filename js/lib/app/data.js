@@ -282,7 +282,7 @@ app.data = {
 
     playerTowerPreset: {
 //        overlayFactory: ymaps.geoObject.overlayFactory.interactiveGraphics,
-        iconImageHref: '../../../sprites/yac-td-sprites-towers.png',
+        iconImageHref: 'sprites/yac-td-sprites-towers.png',
         iconImageSize: [40, 45]
     },
 
@@ -298,7 +298,7 @@ app.data = {
 
     holePreset: {
         overlayFactory: ymaps.geoObject.overlayFactory.staticGraphics,
-        iconImageHref: '../../../img/poiIcon/dps.png',
+        iconImageHref: 'img/poiIcon/dps.png',
         projection: ymaps.projection.wgs84Mercator,
         preset: 'twirl#blueIcon',
         zIndex: 3000
