@@ -1,6 +1,6 @@
 @font-face {
     font-family: pixel_font;
-    src: url('/fonts/25_pixel_cyrillic/Dpix_8pt.ttf');
+    src: url('../fonts/25_pixel_cyrillic/Dpix_8pt.ttf');
 }
 
 #left-panel *, #left-panel button, #left-panel input, .ui-pnotify {
@@ -256,7 +256,7 @@ body {
 }
 
 .tower-image {
-    background-image: url('/sprites/yac-td-sprites-towers.png');
+    background-image: url('../sprites/yac-td-sprites-towers.png');
     background-size:cover;
 }
 
@@ -310,7 +310,7 @@ body {
     position: absolute;
     top: 4px;
     left: 0;
-    background: url('/sprites/yac-td-sprites-mobs.png');
+    background: url('../sprites/yac-td-sprites-mobs.png');
     width: 30px;
     height: 30px;
 }
