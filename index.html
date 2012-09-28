@@ -3,31 +3,143 @@
     <head>
         <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
         <link rel="stylesheet" href="css/main.css" />
-        <script type="text/javascript" src="//yandex.st/jquery/1.6.4/jquery.min.js"></script>
-        <script type="text/javascript" src="//api-maps.yandex.ru/2.0/?lang=ru-RU&load=package.full,overlay.staticGraphics.Polyline,geometry.pixel.LineString,overlay.staticGraphics.Placemark,geometry.pixel.Point,graphics.render.detect.all"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="js/lib/pnotify/jquery.pnotify.default.css">
+        <script type="text/javascript" src="//yandex.st/jquery/1.8.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-mustache.js"></script>
+        <script type="text/javascript" src="js/lib/mustache.js"></script>
+        <script type="text/javascript" src="js/lib/pnotify/jquery.pnotify.js"></script>
+        <script type="text/javascript" src="//api-maps.yandex.ru/2.0/?mode=debug&lang=ru-RU&load=package.full,overlay.staticGraphics.Polyline,geometry.pixel.LineString,overlay.staticGraphics.Placemark,overlay.interactiveGraphics.Placemark,geometry.pixel.Point,graphics.render.detect.all"></script>
+        <!--<script type="text/javascript" src="//spereskokov.orina.maps.dev.yandex.net/api2.0/build/index.xml?mode=debug&lang=ru-RU&load=package.full,overlay.staticGraphics.Polyline,geometry.pixel.LineString,overlay.staticGraphics.Placemark,geometry.pixel.Point,graphics.render.detect.all"></script>-->
+        <script type="text/javascript" src="js/lib/app/data.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/lib/game.js"></script>
-        <script type="text/javascript" src="js/lib/controls.js"></script>
-        <script type="text/javascript" src="js/lib/home.js"></script>
-        <script type="text/javascript" src="js/lib/settings.js"></script>
-        <script type="text/javascript" src="js/lib/presets.js"></script>
-        <script type="text/javascript" src="js/lib/route.js"></script>
-        <script type="text/javascript" src="js/lib/ticker.js"></script>
-        <script type="text/javascript" src="js/lib/util.js"></script>
-        <script type="text/javascript" src="js/lib/wave.js"></script>
-        <script type="text/javascript" src="js/lib/mob.js"></script>
-        <script type="text/javascript" src="js/lib/player.js"></script>
-        <script type="text/javascript" src="js/lib/tower.js"></script>
+        <script type="text/javascript" src="js/lib/app/game.js"></script>
+        <script type="text/javascript" src="js/lib/app/controls.js"></script>
+        <script type="text/javascript" src="js/lib/app/home.js"></script>
+        <script type="text/javascript" src="js/lib/app/settings.js"></script>
+        <script type="text/javascript" src="js/lib/app/presets.js"></script>
+        <script type="text/javascript" src="js/lib/app/route.js"></script>
+        <script type="text/javascript" src="js/lib/app/ticker.js"></script>
+        <script type="text/javascript" src="js/lib/app/util.js"></script>
+        <script type="text/javascript" src="js/lib/app/wave.js"></script>
+        <script type="text/javascript" src="js/lib/app/mob.js"></script>
+        <script type="text/javascript" src="js/lib/app/player.js"></script>
+        <script type="text/javascript" src="js/lib/app/shoot.js"></script>
+        <script type="text/javascript" src="js/lib/app/tower.js"></script>
         <title>Tower Defence</title>
     </head>
     <body>
         <div id="map"></div>
-        <div id="controls"></div>
-        <!--<div id="stats">
-            <div class="level">Уровень: <b class="val"></b></div>
-            <div class="money">$ <b class="val"></b></div>
-            <div class="score">☻ <b class="val"></b></div>
-            <div class="hp">♥ <b class="val"></b></div>
-        </div>-->
+        <div id="left-panel">
+            <div class="top">
+                <div class="user-menu">
+                    <input type="text" placeholder="Введите имя" value="" class="username"/>
+                        <form class="start-game">
+                            <div class="choose-place">
+                                <div class="places"></div>
+                                <input type="text" placeholder="Или введите адрес" value="" class="address"/>
+                            </div>
+                            <button type="submit" class="btn btn-inverse btn-large">Начать игру!</button>
+                        </form>
+                </div>
+                <div class="game">
+                    <div class="controls">
+                        <button class="btn btn-large play"><i class="icon-play"></i></button>
+                        <button class="btn btn-large pause"><i class="icon-pause"></i></button>
+                        <button class="btn btn-large forward"><i class="icon-forward"></i></button>
+                        <button class="btn btn-large home"><i class="icon-home"></i></button>
+                        <button class="btn btn-large buy"><i class="icon-shopping-cart"></i></button>
+                    </div>
+                    <div class="tower-view">
+
+                    </div>
+                    <div class="towers-list">
+
+                    </div>
+
+                    <div class="mob-info">
+                        <div class="current-mob"></div>
+                        <div class="next-mob"></div>
+                    </div>
+                    <div class="stats">
+                    </div>
+                    <div class="veil"></div>
+                    <button class="btn btn-large back-to-menu"><i class="icon-arrow-left"></i> Меню</button>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="ratings"></div>
+            </div>
+        </div>
+        <!--Mustache templates-->
+        <script type="text/html" id="places">
+            {{#places}}
+                <button type="button" class="btn btn-large place">{{title}}</button>
+            {{/places}}
+        </script>
+        <script type="text/html" id="towers-list">
+            <div class="towers-list-wrapper {{addingClass}}" {{^towers}}style="display:none"{{/towers}}>
+                <div class="towers-list-wrapper-overflow-hidden">
+                {{#towers}}
+                    <div class="tower" towerindex="{{index}}" towerid="{{id}}">
+                        <div class="tower-image {{cssClass}} {{selected}}"></div>
+                    </div>
+                {{/towers}}
+                </div>
+            </div>
+            {{^towers}}
+            <div class="no-towers">
+                <p>У вас пока нет ни одной башни</p>
+                <button class="btn btn-large buy-tower-state">Купить башню <i class="icon-shopping-cart"></i></button>
+            </div>
+            {{/towers}}
+        </script>
+        <script type="text/html" id="tower">
+            <div class="tower">
+                <div class="tower-image-wrapper"><div class="tower-image {{cssClass}}"></div></div>
+                <div class="info">
+                    <h2 class="title">{{title}}</h2>
+                    <div class="params">
+                        <div class="param">Радиус: <span class="value">{{radius}}</span></div>
+                        <div class="param">Скорость: <span class="value">{{speed}}</span></div>
+                        <div class="param">Урон: <span class="value">{{damage}}</span></div>
+                    </div>
+                </div>
+                <div class="action" id="tower-action">{{{action}}}</div>
+            </div>
+        </script>
+        <script type="text/html" id="empty-tower">
+            <div class="empty-tower">
+            </div>
+        </script>
+
+
+        <script type="text/html" id="buy-action">
+            <button class="btn btn-primary btn-large buy" title="Купить" towerindex="{{towerindex}}" {{^canBuy}}disabled{{/canBuy}}><i class="icon-shopping-cart icon-white"></i> ${{price}}</button>
+            <button class="btn btn-large cancel" title="Отмена" towerindex="{{towerindex}}" >Отмена</button>
+        </script>
+
+        <script type="text/html" id="upgrade-sale-action">
+            <button class="btn btn btn-success btn-large upgrade" title="Улучшить" towerindex="{{towerindex}}" towerid="{{id}}" {{^canBuy}}disabled{{/canBuy}}><i class="icon-arrow-up"></i> ${{upgradePrice}}</button>
+            <button class="btn btn btn-warning btn-large sale" title="Продать" towerindex="{{towerindex}}" towerid="{{id}}"><i class="icon-remove"></i> ${{sellPrice}}</button>
+        </script>
+
+        <script type="text/html" id="stats">
+            <h2>
+                <span class="money text-success">${{money}}</span> <span class="kills text-info">☻{{kills}}</span> <span class="home-health text-warning">♥{{health}}</span>
+            </h2>
+        </script>
+        <script type="text/html" id="ratings">
+            <table class="scores-table table table-striped" {{^scores}}style="display:none"{{/scores}}>
+                <thead>
+                    <tr><th>Имя</th><th>Рекорд</th></tr>
+                </thead>
+                <tbody>
+                    {{#scores}}
+                        <tr><td>{{playerName}}</td><td>{{score}}</td></tr>
+                    {{/scores}}
+                </tbody>
+            </table>
+        </script>
     </body>
 </html>

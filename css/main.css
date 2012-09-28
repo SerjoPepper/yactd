@@ -1,3 +1,24 @@
+@font-face {
+    font-family: pixel_font;
+    src: url('/fonts/25_pixel_cyrillic/Dpix_8pt.ttf');
+}
+
+#left-panel *, #left-panel button, #left-panel input, .ui-pnotify {
+    font-family: pixel_font !important;
+    font-size: 12px !important;
+}
+.ui-pnotify-container {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+#left-panel button, #left-panel input {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -50,14 +71,293 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-#controls {
+#left-panel {
     position: absolute;
     height: 100%;
     width: 400px;
     right: 0;
     top: 0;
-    background-color: #efefef;
+    background: /*url('/img/bg/2557743.png')*/ #fff repeat;
     -moz-box-shadow: 0 0 20px rgba(0,0,0,0.7);
     -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.7);
     box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    overflow: hidden;
 }
+
+#left-panel .user-menu {
+    /*text-align: center;*/
+    margin-top: 16px;
+}
+
+#left-panel .user-menu .button:hover {
+    background-color: #f00;
+}
+
+#left-panel .user-menu .button.selected {
+    background-color: #0f0;
+}
+
+#left-panel .user-menu input {
+    /*width: 390px;
+
+    padding: 4px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;*/
+    height: 40px;
+    font-size: 16px;
+    padding: 4px 16px;
+    width: 336px;
+    margin: 0;
+}
+
+#left-panel .user-menu input.address  {
+}
+
+#left-panel .user-menu .start-game {
+    text-align: center;
+}
+
+#left-panel .user-menu input.username {
+    margin-left: 16px;
+}
+
+#left-panel .user-menu input.address {
+
+}
+
+#left-panel .user-menu .places {
+    margin: 0px 0px 16px;
+
+}
+
+#left-panel .user-menu .choose-place {
+    background-color: #f0f0f0;
+    margin:  16px 0px 16px;
+    padding: 16px;
+    -moz-box-shadow: 0 0 14px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 14px rgba(0,0,0,0.7);
+}
+
+#left-panel .game {
+    display: none;
+    position: relative
+}
+
+#left-panel .game .controls {
+    padding: 16px;
+    position: relative;
+    background-color: #f0f0f0;
+    -moz-box-shadow: 0 0 14px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 14px rgba(0,0,0,0.7);
+}
+
+#left-panel .game .back-to-menu {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+}
+
+#left-panel .game .veil {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.8;
+    display: none;
+}
+
+#left-panel .game .tower-view {
+    height: 155px;
+    overflow: hidden;
+}
+
+#left-panel .game .tower-view .tower {
+    /*text-align: center;*/
+    overflow: hidden;
+    position: relative;
+}
+
+#left-panel .game .tower-view .tower .tower-image-wrapper {
+    float: left;
+    width: 120px;
+    height: 135px;
+    margin: 20px;
+}
+
+#left-panel .game .tower-view .tower .tower-image-wrapper .tower-image {
+    width:40px;
+    height: 45px;
+    margin: 20px;
+    -webkit-transform: scale(2);
+}
+
+#left-panel .game .tower-view .tower .info .params {
+    float: left;
+
+}
+
+#left-panel .game .tower-view .tower .info .params .param .value {
+    font-weight: bold;
+}
+
+#left-panel .game .tower-view .tower .action {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+#left-panel .game .tower-view .tower .action button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#left-panel .game .tower-view .empty-tower {
+    opacity: 0.5;
+    margin: 20px 0px;
+    text-align: center;
+}
+
+#left-panel .game .tower-view .empty-tower img {
+    width: 100px;
+}
+
+#left-panel .game .towers-list {
+    background-color: #f0f0f0;
+    margin:  16px 0px 16px;
+    padding: 16px 0px 16px 16px;
+    -moz-box-shadow: 0 0 14px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 14px rgba(0,0,0,0.7);
+}
+
+#left-panel .game .towers-list-wrapper {
+    height: 150px;
+    overflow: hidden;
+}
+
+#left-panel .game .towers-list-wrapper .towers-list-wrapper-overflow-hidden {
+    overflow: hidden;
+}
+
+#left-panel .game .towers-list .tower {
+    float: left;
+    margin: 0px 15px 20px 0px;
+    padding: 1px 10px 14px;
+    cursor: pointer;
+}
+
+#left-panel .game .towers-list .tower.selected { border: 1px inset #000000; padding: 0px 9px 13px; border-radius: 3px;}
+
+#left-panel .game .towers-list .tower .tower-image {
+    width: 40px;
+    height: 45px;
+}
+
+.tower-image {
+    background-image: url('/sprites/yac-td-sprites-towers.png');
+    background-size:cover;
+}
+
+.tower-image.tower1 { background-position: 0px 0px; }
+.tower-image.tower2 { background-position: -40px 0px; }
+.tower-image.tower3 { background-position: -80px 0px; }
+.tower-image.tower4 { background-position: -120px 0px; }
+.tower-image.tower5 { background-position: -160px 0px; }
+.tower-image.tower6 { background-position: -200px 0px; }
+.tower-image.tower7 { background-position: -240px 0px; }
+.tower-image.tower8 { background-position: -280px 0px; }
+
+#left-panel .game .towers-list .no-towers {
+    text-align: center;
+}
+
+#left-panel .game .stats {
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.pnotify-position {
+    left: 500px;
+    top: 20px;
+    text-align: center;
+}
+
+.mob-element {
+    display: none;
+    position: absolute;
+}
+
+.mob-element .mob-life-status {
+    height: 3px;
+    width: 24px;
+    position: absolute;
+    left: 3px;
+    top: 0;
+    background-color: #990000;
+}
+
+.mob-element .mob-life-status .green {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #009900;
+}
+
+.mob-element .mob-pic {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    background: url('/sprites/yac-td-sprites-mobs.png');
+    width: 30px;
+    height: 30px;
+}
+
+
+.mob-element .mob-pic.mob1 { background-position: 0px 0px; }
+.mob-element .mob-pic.mob2 { background-position: -30px 0px; }
+.mob-element .mob-pic.mob3 { background-position: -60px 0px; }
+.mob-element .mob-pic.mob4 { background-position: -90px 0px; }
+.mob-element .mob-pic.mob5 { background-position: -120px 0px; }
+.mob-element .mob-pic.mob6 { background-position: -150px 0px; }
+.mob-element .mob-pic.mob7 { background-position: -180px 0px; }
+.mob-element .mob-pic.mob8 { background-position: -210px 0px; width: 48px; left: -8px; }
+
+.mob-element .mob-pic.second-state.mob1 { background-position: 0px -30px; }
+.mob-element .mob-pic.second-state.mob2 { background-position: -30px -30px; }
+.mob-element .mob-pic.second-state.mob3 { background-position: -60px -30px; }
+.mob-element .mob-pic.second-state.mob4 { background-position: -90px -30px; }
+.mob-element .mob-pic.second-state.mob5 { background-position: -120px -30px; }
+.mob-element .mob-pic.second-state.mob6 { background-position: -150px -30px; }
+.mob-element .mob-pic.second-state.mob7 { background-position: -181px -30px; }
+.mob-element .mob-pic.second-state.mob8 { background-position: -210px -30px; }
+
+.tower-shoot {
+    position: absolute;
+    background-color: #00f;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    margin-left: -3px;
+    border: 1px solid #000;
+
+}
+
+.ymaps-layers-pane {
+    /*-webkit-filter: invert(1);*/
+}
+
+.tower1.tower-shoot { -webkit-box-shadow: 0px 0px 5px #33DE39; background-color: #33DE39; border-color: #1E8421; }
+.tower2.tower-shoot { -webkit-box-shadow: 0px 0px 5px #BF7C00; background-color: #BF7C00; border-color: #956300; }
+.tower3.tower-shoot { -webkit-box-shadow: 0px 0px 5px #E01B6A; background-color: #E01B6A; border-color: #B50F4E; }
+.tower4.tower-shoot { -webkit-box-shadow: 0px 0px 5px #BF1BE0; background-color: #BF1BE0; border-color: #8E16A9; }
+.tower5.tower-shoot { -webkit-box-shadow: 0px 0px 5px #39EDBA; background-color: #39EDBA; border-color: #30B98B; }
+.tower6.tower-shoot { -webkit-box-shadow: 0px 0px 5px #83E800; background-color: #83E800; border-color: #5DAC00; }
+.tower7.tower-shoot { -webkit-box-shadow: 0px 0px 5px #ED398D; background-color: #ED398D; border-color: #CC317D; }
+.tower8.tower-shoot { -webkit-box-shadow: 0px 0px 5px #E62C2C; background-color: #E62C2C; border-color: #BA2222; }
+
