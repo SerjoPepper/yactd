@@ -426,7 +426,7 @@ var app = {
     _getStats: function () {
         return {
             money: this.game.player.money,
-            kills: this.game.player.kills,
+            score: this.game.player.score,
             health: this.game.home.hp
         };
     },

@@ -1,4 +1,8 @@
 (function (exports) {
+    var sellPriceK = 0.9,
+        upgradePriceK = 1.3,
+        upgradeRadiusK = 1.1,
+        upgradeDamageK = 1.3;
 
     function Tower (tower) {
         if (!tower) {
@@ -9,8 +13,8 @@
             for (var k in tower) {
                 this[k] = tower[k];
             }
-            this.sellPrice = Math.round(tower.price * 0.9);
-            this.upgradePrice = Math.round(tower.price * 1.5);
+            this.sellPrice = Math.round(tower.price * sellPriceK);
+            this.upgradePrice = Math.round(tower.price * upgradePriceK);
             this.rechargeFps = app.data.fps / this.speed;
         }
 
@@ -160,10 +164,10 @@
 
         upgrade: function () {
             this.price = this.upgradePrice;
-            this.sellPrice = Math.round(this.price * 0.9);
-            this.upgradePrice = Math.round(this.price * 1.1);
-            this.radius = Math.round(this.radius * 1.1);
-            this.damage = this.damage * 1.2;
+            this.sellPrice = Math.round(this.price * sellPriceK);
+            this.upgradePrice = Math.round(this.price * upgradePriceK);
+            this.radius = Math.round(this.radius * upgradeRadiusK);
+            this.damage = this.damage * upgradeDamageK;
             this.circle.geometry.setRadius(this.radius);
         }
     };

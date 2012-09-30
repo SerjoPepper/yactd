@@ -32,7 +32,7 @@ app.data = {
         count: 10,
         activateTime: 3800,
 
-        hp: 17,
+        hp: 12,
         money: 10,
         offset: [-15, -19]
     }, {
@@ -41,7 +41,7 @@ app.data = {
         count: 20,
         activateTime: 1500,
 
-        hp: 15,
+        hp: 10,
         money: 6,
         offset: [-15, -19]
     }, {
@@ -50,7 +50,7 @@ app.data = {
         count: 13,
         activateTime: 3000,
 
-        hp: 36,
+        hp: 25,
         money: 11,
         offset: [-15, -19]
     }, {
@@ -59,7 +59,7 @@ app.data = {
         count: 15,
         activateTime: 7000,
 
-        hp: 89,
+        hp: 50,
         money: 19,
         offset: [-15, -19]
     }, {
@@ -68,7 +68,7 @@ app.data = {
         count: 12,
         activateTime: 3000,
 
-        hp: 51,
+        hp: 38,
         money: 14,
         offset: [-15, -19]
     }, {
@@ -77,16 +77,16 @@ app.data = {
         count: 25,
         activateTime: 1300,
 
-        hp: 33,
+        hp: 25,
         money: 9,
         offset: [-15, -19]
     }, {
         cssClass: 'mob7',
-        speed: 55,
+        speed: 50,
         count: 15,
         activateTime: 2500,
 
-        hp: 95,
+        hp: 80,
         money: 13,
         offset: [-15, -19]
     }, {
@@ -95,7 +95,7 @@ app.data = {
         count: 3,
         activateTime: 15000,
 
-        hp: 400,
+        hp: 300,
         money: 50,
         offset: [-15, -19]
     }],
@@ -312,7 +312,7 @@ app.data = {
         zIndex: 3000
     },
 
-    fps: 30
+    fps: 25
 };
 
 

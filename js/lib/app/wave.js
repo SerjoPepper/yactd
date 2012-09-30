@@ -2,8 +2,11 @@
 
     function Wave (params) {
         var mobData = app.data.mobs[params.mobType],
-            hardness = params.hardness,
-            pathCoords = params.pathCoords;
+            hardness = params.hardness * (Math.random() + 1),
+            pathCoords = params.pathCoords,
+            mobsCount = Math.ceil((Math.random() + 1) * mobData.count);
+
+
 
         this.mobType = params.mobType;
         this.hardness = hardness;
@@ -18,10 +21,9 @@
         this.ticker = new exports.Ticker(1000 * mobData.freq, this.activateMob, this);
         */
         this.mobs = [];
-        for (var i = 0; i <= mobData.count; i++) {
+        for (var i = 0; i <= mobsCount; i++) {
             var mob = new exports.Mob({
                 data: mobData,
-                parent: this.collection,
                 pathCoords: pathCoords,
                 hardness: hardness
             });
@@ -69,15 +71,19 @@
                 }
             }
 
-            if (destroyedMobs == i - 1) {
+            if (destroyedMobs == i) {
                 this.finished = true;
+                for (var i = 0, il = this.mobs.length; i < il; i++) {
+                    this.mobs[i].removeFromDom();
+                    this.mobs[i] = null;
+                }
+                this.mobs = null;
             }
         },
         
         activate: function () {
             
         }
-
     };
 
     exports.Wave = Wave;

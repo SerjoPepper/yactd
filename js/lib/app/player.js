@@ -3,15 +3,9 @@
     function Player (params) {
         this.parent = params.parent;
         this.money = app.data.player.money;
-        this.kills = 0;
+        this.score = 0;
         this.towers = {};
         this.collection = new ymaps.GeoObjectCollection;
-
-        this.stats = {
-            money: $('#stats .money .val'),
-            kills: $('#stats .score .val')
-        };
-
     }
 
     Player.prototype = {
@@ -58,11 +52,11 @@
 
         updateStats: function () {
             this.stats.money.text(this.money);
-            this.stats.kills.text(this.kills);
+            this.stats.score.text(this.score);
         },
 */
         kill: function (mob) {
-            this.kills += 1;
+            this.score += mob.hp;
             this.money += mob.money;
             app.renderStats();
         },

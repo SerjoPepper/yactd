@@ -2,9 +2,8 @@
 
     function Mob (params) {
         this.pathCoords = params.pathCoords;
-        this.parent = params.parent;
 
-        this.hp = this.currentHp = params.data.hp * params.hardness;
+        this.hp = this.currentHp = Math.ceil(params.data.hp * params.hardness);
         this.money = params.data.money/* * params.hardness)*/;
         this.damage = params.data.damage;
         this.speed = params.data.speed / app.data.fps;
@@ -71,6 +70,10 @@
 
         destroy: function () {
             this.destroyed = true;
+            this.hide();
+        },
+
+        removeFromDom: function () {
             this.paneListeners.removeAll();
             this.jMobElement.remove();
         },
@@ -84,7 +87,7 @@
         },
 
         tick: function (home, towers) {
-            if (!this.active && ++this._currentFps == this.activateFps) {
+            if (!this.active && ++this._currentFps >= this.activateFps) {
                 this.active = true;
                 this.show();
             }
@@ -104,10 +107,13 @@
                     if (towers.hasOwnProperty(k)) {
                         towers[k].punch(this);
                         if (this.destroyed) {
+                            this.renderStats();
+                            this.setPosition(nextCoords);
                             return;
                         }
                     }
                 }
+
                 this.renderStats();
                 this.setPosition(nextCoords);
                 home.stab(this);
@@ -125,7 +131,7 @@
             if (!this.destroyed) {
                 this.currentHp = Math.max(this.currentHp - damage, 0);
 //            this.placemark.properties.set('hpcoef', this.currentHp / this.hp);
-                if (this.currentHp == 0) {
+                if (this.currentHp <= 0) {
                     this.destroy();
                     return true;
                 }
