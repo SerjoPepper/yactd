@@ -161,7 +161,7 @@
             if (prevWave) {
                 if (++prevWave.mobType >= app.data.mobs.length) {
                     mobType = 0;
-                    hardness = prevWave.hardness + 1;
+                    hardness = prevWave.hardness + 2;
                 } else {
                     mobType = prevWave.mobType;
                     hardness = prevWave.hardness;
