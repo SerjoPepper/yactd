@@ -312,7 +312,7 @@ app.data = {
         zIndex: 3000
     },
 
-    fps: 30
+    fps: 25
 };
 
 
