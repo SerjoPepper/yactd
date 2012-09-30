@@ -22,6 +22,10 @@
 
         removeFromParent: function () {
             this.parent.remove(this.collection);
+            for (var k in this.towers) {
+                this.towers[k].removeFromParent();
+                delete this.towers[k];
+            }
         },
 
         buyTower: function (tower) {

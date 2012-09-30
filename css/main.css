@@ -84,6 +84,19 @@ body {
     overflow: hidden;
 }
 
+
+#left-panel .game .controls .play .icon-play {
+    display: none;
+}
+
+#left-panel .game .controls .play.pause .icon-pause {
+    display: none;
+}
+
+#left-panel .game .controls .play.pause .icon-play {
+    display: inline-block;
+}
+
 #left-panel .user-menu {
     /*text-align: center;*/
     margin-top: 16px;
@@ -156,6 +169,13 @@ body {
     position: absolute;
     top: 16px;
     right: 16px;
+    z-index: 1;
+}
+
+#left-panel .game .restart {
+    position: absolute;
+    top: 16px;
+    right: 116px;
     z-index: 1;
 }
 

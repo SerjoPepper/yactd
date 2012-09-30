@@ -89,6 +89,8 @@
                 this.show();
             }
 
+//            app.game.finished && console.log('!this.active || this.destroyed', this.active, this.destroyed);
+
             if (!this.active || this.destroyed) {
                 return;
             }

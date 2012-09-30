@@ -28,75 +28,83 @@ app.data = {
 
     mobs: [{
         cssClass: 'mob1',
-        speed: 8,
-        hp: 50,
+        speed: 43,
+        count: 10,
+        activateTime: 3800,
+
+        hp: 15,
         money: 10,
-        count: 5,
-        activateTime: 3000,
         offset: [-15, -19]
     }, {
         cssClass: 'mob2',
-        speed: 40,
-        hp: 20,
-        money: 10,
-        count: 5,
-        activateTime: 3000,
+        speed: 60,
+        count: 20,
+        activateTime: 1500,
+
+        hp: 12,
+        money: 6,
         offset: [-15, -19]
     }, {
         cssClass: 'mob3',
-        speed: 20,
-        hp: 20,
-        money: 10,
-        count: 5,
+        speed: 50,
+        count: 13,
         activateTime: 3000,
+
+        hp: 30,
+        money: 11,
         offset: [-15, -19]
     }, {
         cssClass: 'mob4',
-        speed: 10,
-        hp: 200,
-        money: 200,
-        count: 5,
-        activateTime: 3000,
+        speed: 27,
+        count: 15,
+        activateTime: 7000,
+
+        hp: 77,
+        money: 19,
         offset: [-15, -19]
     }, {
         cssClass: 'mob5',
-        speed: 8,
-        hp: 50,
-        money: 10,
-        count: 5,
+        speed: 45,
+        count: 12,
         activateTime: 3000,
+
+        hp: 40,
+        money: 14,
         offset: [-15, -19]
     }, {
         cssClass: 'mob6',
-        speed: 40,
-        hp: 20,
-        money: 10,
-        count: 5,
-        activateTime: 3000,
+        speed: 68,
+        count: 25,
+        activateTime: 1300,
+
+        hp: 25,
+        money: 9,
         offset: [-15, -19]
     }, {
         cssClass: 'mob7',
-        speed: 20,
-        hp: 20,
-        money: 10,
-        count: 5,
-        activateTime: 3000,
+        speed: 55,
+        count: 15,
+        activateTime: 2500,
+
+        hp: 60,
+        money: 13,
         offset: [-15, -19]
     }, {
         cssClass: 'mob8',
-        speed: 13,
-        hp: 50,
-        money: 50,
+        speed: 20,
         count: 3,
-        activateTime: 5000,
+        activateTime: 15000,
+
+        hp: 200,
+        money: 50,
         offset: [-15, -19]
     }],
 
     towers: [{
         title: 'Tower1',
         cssClass: 'tower1',
-        damage: 5,
-        speed: 2,
+        damage: 4,
+        speed: 1,
         radius: 100,
         price: 100,
         preset: {
@@ -107,15 +115,15 @@ app.data = {
         },
         shooting: {
             img: '',
-            speed: 80,
+            speed: 200,
             cssClass: 'tower1',
             offsetX: -10
         }
     }, {
         title: 'Tower2',
         cssClass: 'tower2',
-        damage: 5,
-        speed: 2,
+        damage: 1,
+        speed: 6,
         radius: 100,
         price: 200,
         preset: {
@@ -126,7 +134,7 @@ app.data = {
         },
         shooting: {
             img: '',
-            speed: 80,
+            speed: 200,
             cssClass: 'tower2',
             offsetX: -10
         },
@@ -137,8 +145,8 @@ app.data = {
     }, {
         title: 'Tower3',
         cssClass: 'tower3',
-        damage: 5,
-        speed: 5,
+        damage: 6,
+        speed: 2,
         radius: 100,
         price: 300,
         preset: {
@@ -149,16 +157,16 @@ app.data = {
         },
         shooting: {
             img: '',
-            speed: 80,
+            speed: 200,
             cssClass: 'tower3',
             offsetX: -10
         }
     }, {
         title: 'Tower4',
         cssClass: 'tower4',
-        damage: 5,
-        speed: 5,
-        radius: 200,
+        damage: 2,
+        speed: 10,
+        radius: 100,
         price: 400,
         preset: {
             iconImageClipRect: [[120, 0], [160, 45]],
@@ -168,7 +176,7 @@ app.data = {
         },
         shooting: {
             img: '',
-            speed: 80,
+            speed: 160,
             cssClass: 'tower4',
             offsetX: -10
         },
@@ -179,10 +187,10 @@ app.data = {
     }, {
         title: 'Tower5',
         cssClass: 'tower5',
-        damage: 5,
-        speed: 5,
+        damage: 6,
+        speed: 6,
         radius: 100,
-        price: 100,
+        price: 500,
         preset: {
             iconImageClipRect: [[160, 0], [200, 45]],
             iconImageOffset: [-19, -35],
@@ -191,16 +199,16 @@ app.data = {
         },
         shooting: {
             img: '',
-            speed: 80,
+            speed: 160,
             cssClass: 'tower5',
             offsetX: -10
         }
-    }, {
+    }/*, {
         title: 'Tower6',
         cssClass: 'tower6',
         damage: 5,
         speed: 2,
-        radius: 100,
+        radius: 110,
         price: 200,
         preset: {
             iconImageClipRect: [[200, 0], [240, 45]],
@@ -223,7 +231,7 @@ app.data = {
         cssClass: 'tower7',
         damage: 5,
         speed: 5,
-        radius: 100,
+        radius: 120,
         price: 300,
         preset: {
             iconImageClipRect: [[240, 0], [280, 45]],
@@ -242,7 +250,7 @@ app.data = {
         cssClass: 'tower8',
         damage: 5,
         speed: 5,
-        radius: 200,
+        radius: 130,
         price: 400,
         preset: {
             iconImageClipRect: [[280, 0], [320, 45]],
@@ -260,10 +268,10 @@ app.data = {
             time: 200,
             value: 0.5
         }
-    }],
+    }*/],
 
     player: {
-        money: 500
+        money: 199
     },
 
     /*defaultTower: {

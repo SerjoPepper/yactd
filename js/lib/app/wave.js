@@ -50,6 +50,8 @@
         },
 
         tick: function (home, towers) {
+//            app.game.finished && console.log('this.finished', this.finished, this.mobs);
+
             if (this.finished) {
                 return;
             }
@@ -58,9 +60,9 @@
                 var mob = this.mobs[i];
 //                if (mob.active) {
                 mob.tick(home, towers);
-                if (home.destroyed) {
+/*                if (home.destroyed) {
                     return;
-                }
+                }*/
 //                }
                 if (mob.destroyed) {
                     destroyedMobs++;

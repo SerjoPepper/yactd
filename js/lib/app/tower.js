@@ -22,10 +22,6 @@
             preset: tower.preset
         });
 
-        this._placemarkEvents = this.placemark.events.group().add('click', function () {
-            app.setHomeState(this);
-        }, this);
-
         this.circle = new ymaps.Circle([null, this.radius], {}, {
             preset: tower.preset,
             overlayFactory: ymaps.geoObject.overlayFactory.staticGraphics
@@ -156,6 +152,10 @@
 //                overlayFactory: ymaps.geoObject.overlayFactory.interactiveGraphics,
                 zIndex: 5000
             });
+
+            this._placemarkEvents = this.placemark.events.group().add('click', function () {
+                app.setHomeState(this);
+            }, this);
         },
 
         upgrade: function () {

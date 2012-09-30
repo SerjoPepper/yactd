@@ -1,5 +1,7 @@
 var app = {
     init: function () {
+        this._ratings = this.getStorageRatings();
+
         var form = $('#left-panel form.start-game'),
             game = $('#left-panel .game'),
             controls = game.find('.controls');
@@ -17,11 +19,11 @@ var app = {
             veil: game.find('.veil'),
             buttons: {
                 play: controls.find('button.play'),
-                pause: controls.find('button.pause'),
                 forward: controls.find('button.forward'),
                 home: controls.find('button.home'),
                 buy: controls.find('button.buy'),
-                backButton: game.find('button.back-to-menu')
+                backButton: game.find('button.back-to-menu'),
+                restartButton: game.find('button.restart')
             },
             ratings: $('#left-panel .ratings')
         };
@@ -50,6 +52,7 @@ var app = {
                 points: points,
                 map: this.map
             };
+//            console.log('route length', route.getLength());
             this.elements.form.blur();
             this.createGame();
         }, this), $.proxy(function () {
@@ -109,6 +112,7 @@ var app = {
             this.game.pause();
             this.game.removeFromMap();
             this.gameEvents.removeAll();
+            this.elements.buttons.forward.removeClass('active');
         }
     },
 
@@ -136,11 +140,11 @@ var app = {
         this.elements.places.on('click', '.place', $.proxy(this._onPlaceChoose, this));
         this.elements.form.submit($.proxy(this._onFormSubmit, this));
         this.elements.buttons.play.click($.proxy(this._onPlayClick, this));
-        this.elements.buttons.pause.click($.proxy(this._onPauseClick, this));
         this.elements.buttons.forward.click($.proxy(this._onForwardClick, this));
         this.elements.buttons.home.click($.proxy(this._onHomeClick, this));
         this.elements.buttons.buy.click($.proxy(this._onBuyClick, this));
         this.elements.buttons.backButton.click($.proxy(this._onBackButtonClick, this));
+        this.elements.buttons.restartButton.click($.proxy(this.restart, this));
         this.elements.towersList.on('click', '.buy-tower-state', $.proxy(this._onBuyClick, this));
         this.elements.towersList.on('click', '.buy-towers .tower', $.proxy(this._onTowerClickInBuyList, this));
         this.elements.towersList.on('click', '.player-towers .tower', $.proxy(this._onTowerClickInPlayerList, this));
@@ -214,20 +218,16 @@ var app = {
     },
 
     _onPlayClick: function () {
-        if (!this._playing && !this._gameFinished) {
-            this.elements.buttons.play.addClass('active');
-            this.elements.buttons.pause.removeClass('active');
-            this._playing = true;
-            this.game.play();
-        }
-    },
-
-    _onPauseClick: function () {
-        if (this._playing && !this._gameFinished) {
-            this.elements.buttons.pause.addClass('active');
-            this.elements.buttons.play.removeClass('active');
-            this._playing = false;
-            this.game.pause();
+        if (!this._gameFinished) {
+            if (this._playing) {
+                this.elements.buttons.play.addClass('pause');
+                this._playing = false;
+                this.game.pause();
+            } else {
+                this.elements.buttons.play.removeClass('pause');
+                this._playing = true;
+                this.game.play();
+            }
         }
     },
 
@@ -275,7 +275,9 @@ var app = {
         }
         var playerName = this.elements.playerNameInput.val(),
             addressValue = this.elements.addressInput.val();
-        if (playerName) {
+        if (playerName && this._ratings[playerName]) {
+            $.pnotify({ text: 'Введите другое имя, это уже занято!', type: 'error' });
+        } else if (playerName) {
             this.playerName = playerName;
             if (addressValue) {
                 ymaps.geocode(addressValue, { results: 1, kind: 'house' }).then($.proxy(function (res) {
@@ -321,7 +323,7 @@ var app = {
         });
         if (this._currentPlayerTower) {
             var node = this.elements.towersList.find('.tower[towerid="'+ this._currentPlayerTower.id +'"]');
-            console.log('node', node);
+//            console.log('node', node);
             if (node) {
                 node.addClass('selected');
                 this._prevSelectedTowerNode = node[0];
@@ -442,7 +444,7 @@ var app = {
         towersList.sort(function (a, b) {
             return b.index - a.index;
         });
-        console.log(towersList);
+//        console.log(towersList);
         return towersList;
     },
 
@@ -486,27 +488,25 @@ var app = {
     },
 
     updateRatings: function () {
-        var ratings = this.getStorageRatings();
-
-        var playerScore = ratings[this.playerName],
+        var playerScore = this._ratings[this.playerName],
             score = this.game.player.kills;
 
         if (!playerScore || playerScore < score) {
-            ratings[this.playerName] = score;
-            window.localStorage.setItem('ratings', JSON.stringify(ratings));
+            this._ratings[this.playerName] = score;
+            window.localStorage.setItem('ratings', JSON.stringify(this._ratings));
         }
 
-        this.renderRatings(ratings);
+        this.renderRatings();
     },
 
-    renderRatings: function (ratings) {
-        if (!ratings) {
-            ratings = this.getStorageRatings();
+    renderRatings: function () {
+        if (!this._ratings) {
+            this._ratings = this.getStorageRatings();
         }
 
         var arr = [];
-        for (var k in ratings) {
-            arr.push({ playerName: k, score: ratings[k] });
+        for (var k in this._ratings) {
+            arr.push({ playerName: k, score: this._ratings[k] });
         }
         arr = arr.sort(function (a, b) {
             return b.score - a.score;
@@ -527,6 +527,9 @@ var app = {
 };
 
 ymaps.ready(function () {
+    if (window.location.hash == '#clear') {
+        window.localStorage.removeItem('ratings');
+    }
     app.init();
 });
 

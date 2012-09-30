@@ -86,7 +86,8 @@
         },
 
         finish: function () {
-            this.pause();
+//            this.pause();
+            this.player.removeFromParent();
             this.finished = true;
             this.events.fire('finish');
         },
@@ -125,7 +126,7 @@
             this.wave.tick(this.home, this.player.towers);
             this.player.tick();
 
-            if (this.home.destroyed) {
+            if (this.home.destroyed && !this.finished) {
                 this.finish();
                 return;
             }
@@ -133,7 +134,8 @@
             if (this.wave.finished) {
                 this.wave = this.createWave(this.wave);
             }
-            this.player.tick();
+
+//            this.finished && console.log('tick');
         },
 
 /*        finishLevel: function () {
