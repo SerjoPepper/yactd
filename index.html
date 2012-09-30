@@ -98,11 +98,12 @@
             <div class="tower">
                 <div class="tower-image-wrapper"><div class="tower-image {{cssClass}}"></div></div>
                 <div class="info">
-                    <h2 class="title">{{title}}</h2>
+                    <h2 class="title"><b>{{title}}</b></h2>
                     <div class="params">
                         <div class="param">Радиус: <span class="value">{{radius}}</span></div>
                         <div class="param">Скорость: <span class="value">{{speed}}</span></div>
                         <div class="param">Урон: <span class="value">{{damage}}</span></div>
+                        <div class="param freeze" {{^freeze}}style="display: none"{{/freeze}}>Freeze!</div>
                     </div>
                 </div>
                 <div class="action" id="tower-action">{{{action}}}</div>

@@ -5,7 +5,7 @@
 
 #left-panel *, #left-panel button, #left-panel input, .ui-pnotify {
     font-family: pixel_font !important;
-    font-size: 12px !important;
+    font-size: 13px !important;
 }
 .ui-pnotify-container {
     -webkit-border-radius: 0px !important;
@@ -224,6 +224,10 @@ body {
     font-weight: bold;
 }
 
+#left-panel .game .tower-view .tower .info .params .param.freeze {
+    color: #0000f2;
+}
+
 #left-panel .game .tower-view .tower .action {
     position: absolute;
     top: 20px;
@@ -373,8 +377,8 @@ body {
 }
 
 .tower1.tower-shoot { -webkit-box-shadow: 0px 0px 5px #33DE39; background-color: #33DE39; border-color: #1E8421; }
-.tower2.tower-shoot { -webkit-box-shadow: 0px 0px 5px #BF7C00; background-color: #BF7C00; border-color: #956300; }
-.tower3.tower-shoot { -webkit-box-shadow: 0px 0px 5px #E01B6A; background-color: #E01B6A; border-color: #B50F4E; }
+.tower2.tower-shoot { -webkit-box-shadow: 0px 0px 5px #E62C2C; background-color: #E62C2C; border-color: #BA2222; }
+.tower3.tower-shoot { -webkit-box-shadow: 0px 0px 5px #2155f5; background-color: #2155f5; border-color: #0900b5; }
 .tower4.tower-shoot { -webkit-box-shadow: 0px 0px 5px #BF1BE0; background-color: #BF1BE0; border-color: #8E16A9; }
 .tower5.tower-shoot { -webkit-box-shadow: 0px 0px 5px #39EDBA; background-color: #39EDBA; border-color: #30B98B; }
 .tower6.tower-shoot { -webkit-box-shadow: 0px 0px 5px #83E800; background-color: #83E800; border-color: #5DAC00; }

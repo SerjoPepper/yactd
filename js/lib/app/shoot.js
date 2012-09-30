@@ -37,7 +37,7 @@
             if (this.speed > distance) {
                 this._nextTickEnd = true;
                 pos = endPos;
-                if (this.mob.stab(this.damage)) {
+                if (this.mob.stab(this.damage, this.freeze)) {
                     app.game.player.kill(this.mob);
                 }
             } else {

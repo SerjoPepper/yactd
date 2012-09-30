@@ -4,7 +4,7 @@
         this.pathCoords = params.pathCoords;
 
         this.hp = this.currentHp = Math.ceil(params.data.hp * params.hardness);
-        this.money = Math.ceil(params.data.money * Math.max(1, params.hardness / 1.5));
+        this.money = params.data.money;
         this.damage = params.data.damage;
         this.speed = params.data.speed / app.data.fps;
         this.imgSize = params.data.imgSize;
@@ -92,13 +92,22 @@
                 this.show();
             }
 
+            var speed = this.speed;
+
+            if (this._freezed) {
+                if (this._freezeFps-- == 0) {
+                    this._freezed = false;
+                }
+                speed = this._freezeSpeed;
+            }
+
 //            app.game.finished && console.log('!this.active || this.destroyed', this.active, this.destroyed);
 
             if (!this.active || this.destroyed) {
                 return;
             }
 
-            var nextCoords = this._getNextCoords();
+            var nextCoords = this._getNextCoords(speed);
 
             if (nextCoords) {
                 this.pos = nextCoords;
@@ -127,8 +136,11 @@
             }
         },
 
-        stab: function (damage) {
+        stab: function (damage, freeze) {
             if (!this.destroyed) {
+                if (freeze) {
+                    this.freeze(freeze);
+                }
                 this.currentHp = Math.max(this.currentHp - damage, 0);
 //            this.placemark.properties.set('hpcoef', this.currentHp / this.hp);
                 if (this.currentHp <= 0) {
@@ -138,7 +150,7 @@
             }
         },
 
-        _getNextCoords: function () {
+        _getNextCoords: function (speed) {
             if (this._pathEnded) {
                 return null;
             }
@@ -150,7 +162,7 @@
                 prevPos = pos,
                 distance;
 
-            while (tlen - this.speed < 0 && (nextCoords = coords[i])) {
+            while (tlen - speed < 0 && (nextCoords = coords[i])) {
                 distance = exports.util.distance(nextCoords, pos);
                 tlen += distance;
                 prevPos = pos;
@@ -159,7 +171,7 @@
             }
 
             if (nextCoords) {
-                var k = (distance - (tlen - this.speed)) / distance,
+                var k = (distance - (tlen - speed)) / distance,
                     vec = [pos[0] - prevPos[0], pos[1] - prevPos[1]];
 
                 pos = [prevPos[0] + vec[0] * k, prevPos[1] + vec[1] * k];
@@ -210,6 +222,12 @@
                 ]];
             exports.util.renderLine(greenCoords, '#00cc00');
             exports.util.renderLine(redCoords, '#cc0000');*/
+        },
+
+        freeze: function (params) {
+            this._freezeSpeed = this.speed * params.value;
+            this._freezeFps = params.time / app.data.fps;
+            this._freezed = true;
         }
     };
 

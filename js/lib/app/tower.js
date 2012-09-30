@@ -129,6 +129,7 @@
                 var i = this.shootIndexes.pop() || this.shoots.length;
                 this.shoots[i] = new exports.Shoot(this.shooting, this.pos, this.damage, mob, this.freeze);
                 this.punched = true;
+
                 /*    killmob = mob.stab(this.damage);
                 if (killmob) {
                     this.player.kill(mob);
@@ -169,6 +170,10 @@
             this.radius = Math.round(this.radius * upgradeRadiusK);
             this.damage = Math.ceil(this.damage * upgradeDamageK);
             this.circle.geometry.setRadius(this.radius);
+            if (this.freeze) {
+                this.freeze.time *= 1.5;
+                this.freeze.value /= 1.5;
+            }
         }
     };
 

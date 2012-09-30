@@ -66,7 +66,7 @@ app.data = {
         cssClass: 'mob5',
         speed: 45,
         count: 12,
-        activateTime: 3000,
+        activateTime: 4000,
 
         hp: 36,
         money: 15,
@@ -77,16 +77,16 @@ app.data = {
         count: 25,
         activateTime: 1300,
 
-        hp: 23,
+        hp: 18,
         money: 11,
         offset: [-15, -19]
     }, {
         cssClass: 'mob7',
         speed: 50,
         count: 15,
-        activateTime: 2500,
+        activateTime: 4000,
 
-        hp: 80,
+        hp: 60,
         money: 16,
         offset: [-15, -19]
     }, {
@@ -95,16 +95,16 @@ app.data = {
         count: 3,
         activateTime: 15000,
 
-        hp: 300,
+        hp: 250,
         money: 50,
         offset: [-15, -19]
     }],
 
     towers: [{
-        title: 'Tower1',
+        title: 'Cheap&Slow',
         cssClass: 'tower1',
         damage: 4,
-        speed: 1,
+        speed: 2,
         radius: 100,
         price: 100,
         preset: {
@@ -115,53 +115,53 @@ app.data = {
         },
         shooting: {
             img: '',
-            speed: 200,
+            speed: 250,
             cssClass: 'tower1',
             offsetX: -10
         }
     }, {
-        title: 'Tower2',
+        title: 'Minigun',
         cssClass: 'tower2',
         damage: 1,
-        speed: 6,
-        radius: 100,
-        price: 200,
+        speed: 7,
+        radius: 120,
+        price: 150,
         preset: {
             iconImageClipRect: [[40, 0], [80, 45]],
             iconImageOffset: [-19, -35],
-            fillColor: 'BF7C0044',
-            strokeColor: 'BF7C00aa'
+            fillColor: 'E62C2C44',
+            strokeColor: 'E62C2Caa'
         },
         shooting: {
             img: '',
-            speed: 200,
+            speed: 250,
             cssClass: 'tower2',
+            offsetX: -10
+        }
+    }, {
+        title: 'IceCube',
+        cssClass: 'tower3',
+        damage: 1,
+        speed: 3,
+        radius: 100,
+        price: 200,
+        preset: {
+            iconImageClipRect: [[80, 0], [120, 45]],
+            iconImageOffset: [-19, -35],
+            fillColor: '2155f566',
+            strokeColor: '2155f5dd'
+        },
+        shooting: {
+            img: '',
+            speed: 250,
+            cssClass: 'tower3',
             offsetX: -10
         },
         freeze: {
             time: 200,
             value: 0.5
         }
-    }, {
-        title: 'Tower3',
-        cssClass: 'tower3',
-        damage: 6,
-        speed: 2,
-        radius: 100,
-        price: 300,
-        preset: {
-            iconImageClipRect: [[80, 0], [120, 45]],
-            iconImageOffset: [-19, -35],
-            fillColor: 'E01B6A66',
-            strokeColor: 'E01B6Add'
-        },
-        shooting: {
-            img: '',
-            speed: 200,
-            cssClass: 'tower3',
-            offsetX: -10
-        }
-    }, {
+    }/*, {
         title: 'Tower4',
         cssClass: 'tower4',
         damage: 2,
@@ -203,7 +203,7 @@ app.data = {
             cssClass: 'tower5',
             offsetX: -10
         }
-    }/*, {
+    }*//*, {
         title: 'Tower6',
         cssClass: 'tower6',
         damage: 5,
@@ -312,7 +312,7 @@ app.data = {
         zIndex: 3000
     },
 
-    fps: 25
+    fps: 30
 };
 
 

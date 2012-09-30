@@ -344,7 +344,7 @@ var app = {
         this.renderBuyTower();
         this.elements.towersList.empty().mustache('towers-list', { towers: this._getBuyTowersListData(), addingClass: 'buy-towers' });
         this._addMapEvents();
-//        $.pnotify({ text: 'Выберите место для постройки.' });
+        $.pnotify({ text: 'Выберите башню.' });
         this._state = 'buy';
     },
 
