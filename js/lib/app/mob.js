@@ -5,7 +5,7 @@
         this.parent = params.parent;
 
         this.hp = this.currentHp = params.data.hp * params.hardness;
-        this.money = Math.round(params.data.money * params.hardness);
+        this.money = params.data.money/* * params.hardness)*/;
         this.damage = params.data.damage;
         this.speed = params.data.speed / app.data.fps;
         this.imgSize = params.data.imgSize;

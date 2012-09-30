@@ -32,7 +32,7 @@ app.data = {
         count: 10,
         activateTime: 3800,
 
-        hp: 15,
+        hp: 17,
         money: 10,
         offset: [-15, -19]
     }, {
@@ -41,7 +41,7 @@ app.data = {
         count: 20,
         activateTime: 1500,
 
-        hp: 12,
+        hp: 15,
         money: 6,
         offset: [-15, -19]
     }, {
@@ -50,7 +50,7 @@ app.data = {
         count: 13,
         activateTime: 3000,
 
-        hp: 30,
+        hp: 36,
         money: 11,
         offset: [-15, -19]
     }, {
@@ -59,7 +59,7 @@ app.data = {
         count: 15,
         activateTime: 7000,
 
-        hp: 77,
+        hp: 89,
         money: 19,
         offset: [-15, -19]
     }, {
@@ -68,7 +68,7 @@ app.data = {
         count: 12,
         activateTime: 3000,
 
-        hp: 40,
+        hp: 51,
         money: 14,
         offset: [-15, -19]
     }, {
@@ -77,7 +77,7 @@ app.data = {
         count: 25,
         activateTime: 1300,
 
-        hp: 25,
+        hp: 33,
         money: 9,
         offset: [-15, -19]
     }, {
@@ -86,7 +86,7 @@ app.data = {
         count: 15,
         activateTime: 2500,
 
-        hp: 60,
+        hp: 95,
         money: 13,
         offset: [-15, -19]
     }, {
@@ -95,7 +95,7 @@ app.data = {
         count: 3,
         activateTime: 15000,
 
-        hp: 200,
+        hp: 400,
         money: 50,
         offset: [-15, -19]
     }],

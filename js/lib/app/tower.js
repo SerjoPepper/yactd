@@ -163,7 +163,7 @@
             this.sellPrice = Math.round(this.price * 0.9);
             this.upgradePrice = Math.round(this.price * 1.1);
             this.radius = Math.round(this.radius * 1.1);
-            this.damage = Math.round(this.damage * 1.5);
+            this.damage = Math.ceil(this.damage * 1.5);
             this.circle.geometry.setRadius(this.radius);
         }
     };
