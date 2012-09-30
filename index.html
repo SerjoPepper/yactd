@@ -127,13 +127,13 @@
 
         <script type="text/html" id="stats">
             <h2>
-                <span class="money text-success">${{money}}</span> <span class="kills text-info">☻{{score}}</span> <span class="home-health text-warning">♥{{health}}</span>
+                <span class="money text-success">${{money}}</span>&nbsp;&nbsp;&nbsp;<span class="kills text-info">Score: {{score}}</span>&nbsp;&nbsp;&nbsp;<span class="home-health text-warning">♥{{health}}</span>
             </h2>
         </script>
         <script type="text/html" id="ratings">
             <table class="scores-table table table-striped" {{^scores}}style="display:none"{{/scores}}>
                 <thead>
-                    <tr><th>Имя</th><th>Рекорд</th></tr>
+                    <tr><th><b>Имя</b></th><th><b>Рекорд</b></th></tr>
                 </thead>
                 <tbody>
                     {{#scores}}

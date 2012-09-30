@@ -13,15 +13,15 @@ app.data = {
             title: 'Санкт-Петербург',
 //            polylines: [],
             points: {
-                start: [],
-                finish: []
+                start: [59.945959, 30.272309],
+                finish: [59.942536, 30.305737]
             }
         }, {
-            title: 'Уфа',
+            title: 'Киев',
 //            polylines: [],
             points: {
-                start: [],
-                finish: []
+                start: [50.458896, 30.485159],
+                finish: [50.451928, 30.500415]
             }
         }
     ],
@@ -139,7 +139,7 @@ app.data = {
             offsetX: -10
         }
     }, {
-        title: 'IceCube',
+        title: 'Snowball',
         cssClass: 'tower3',
         damage: 1,
         speed: 3,
