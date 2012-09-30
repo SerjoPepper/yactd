@@ -10,7 +10,7 @@
                 this[k] = tower[k];
             }
             this.sellPrice = Math.round(tower.price * 0.9);
-            this.upgradePrice = Math.round(tower.price * 1.1);
+            this.upgradePrice = Math.round(tower.price * 1.5);
             this.rechargeFps = app.data.fps / this.speed;
         }
 
@@ -163,7 +163,7 @@
             this.sellPrice = Math.round(this.price * 0.9);
             this.upgradePrice = Math.round(this.price * 1.1);
             this.radius = Math.round(this.radius * 1.1);
-            this.damage = Math.ceil(this.damage * 1.5);
+            this.damage = this.damage * 1.2;
             this.circle.geometry.setRadius(this.radius);
         }
     };
