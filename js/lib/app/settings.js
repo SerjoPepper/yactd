@@ -35,7 +35,7 @@
         },
 
         home: {
-            hp: 5,
+            hp: 10,
             radius: 100,
             preset: 'game#home',
             liveColor: [0, 255, 0],

@@ -4,7 +4,7 @@
         this.pathCoords = params.pathCoords;
 
         this.hp = this.currentHp = Math.ceil(params.data.hp * params.hardness);
-        this.money = params.data.money/* * params.hardness)*/;
+        this.money = Math.ceil(params.data.money * Math.max(1, params.hardness / 1.5));
         this.damage = params.data.damage;
         this.speed = params.data.speed / app.data.fps;
         this.imgSize = params.data.imgSize;

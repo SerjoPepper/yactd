@@ -32,8 +32,8 @@ app.data = {
         count: 10,
         activateTime: 3800,
 
-        hp: 12,
-        money: 10,
+        hp: 10,
+        money: 11,
         offset: [-15, -19]
     }, {
         cssClass: 'mob2',
@@ -41,8 +41,8 @@ app.data = {
         count: 20,
         activateTime: 1500,
 
-        hp: 10,
-        money: 6,
+        hp: 8,
+        money: 8,
         offset: [-15, -19]
     }, {
         cssClass: 'mob3',
@@ -50,8 +50,8 @@ app.data = {
         count: 13,
         activateTime: 3000,
 
-        hp: 25,
-        money: 11,
+        hp: 22,
+        money: 13,
         offset: [-15, -19]
     }, {
         cssClass: 'mob4',
@@ -59,8 +59,8 @@ app.data = {
         count: 15,
         activateTime: 7000,
 
-        hp: 50,
-        money: 19,
+        hp: 48,
+        money: 21,
         offset: [-15, -19]
     }, {
         cssClass: 'mob5',
@@ -68,8 +68,8 @@ app.data = {
         count: 12,
         activateTime: 3000,
 
-        hp: 38,
-        money: 14,
+        hp: 36,
+        money: 15,
         offset: [-15, -19]
     }, {
         cssClass: 'mob6',
@@ -77,8 +77,8 @@ app.data = {
         count: 25,
         activateTime: 1300,
 
-        hp: 25,
-        money: 9,
+        hp: 23,
+        money: 11,
         offset: [-15, -19]
     }, {
         cssClass: 'mob7',
@@ -87,7 +87,7 @@ app.data = {
         activateTime: 2500,
 
         hp: 80,
-        money: 13,
+        money: 16,
         offset: [-15, -19]
     }, {
         cssClass: 'mob8',

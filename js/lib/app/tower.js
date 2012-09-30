@@ -1,8 +1,8 @@
 (function (exports) {
     var sellPriceK = 0.9,
-        upgradePriceK = 1.3,
+        upgradePriceK = 1.2,
         upgradeRadiusK = 1.1,
-        upgradeDamageK = 1.3;
+        upgradeDamageK = 1.4;
 
     function Tower (tower) {
         if (!tower) {
@@ -167,7 +167,7 @@
             this.sellPrice = Math.round(this.price * sellPriceK);
             this.upgradePrice = Math.round(this.price * upgradePriceK);
             this.radius = Math.round(this.radius * upgradeRadiusK);
-            this.damage = this.damage * upgradeDamageK;
+            this.damage = Math.ceil(this.damage * upgradeDamageK);
             this.circle.geometry.setRadius(this.radius);
         }
     };

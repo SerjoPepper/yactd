@@ -120,8 +120,9 @@ var app = {
         this.elements.buttons.play.removeClass('active');
         this.elements.veil.show();
         this._gameFinished = true;
+        this._removeMapEvents();
         this.updateRatings();
-        $.pnotify({ text: 'Игра закончена. Ваш рекорд ' + this.game.player.kills });
+        $.pnotify({ text: 'Игра закончена. Ваш рекорд ' + this.game.player.score });
     },
 
     onGameLevelFinish: function () {
@@ -489,7 +490,7 @@ var app = {
 
     updateRatings: function () {
         var playerScore = this._ratings[this.playerName],
-            score = this.game.player.kills;
+            score = this.game.player.score;
 
         if (!playerScore || playerScore < score) {
             this._ratings[this.playerName] = score;
