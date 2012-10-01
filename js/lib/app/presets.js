@@ -122,9 +122,13 @@ ymaps.ready(function () {
 
     storage.add('game#home', {
         opacity: 0.6,
-        preset: 'twirl#houseIcon',
         overlayFactory: ymaps.geoObject.overlayFactory.staticGraphics,
-        zIndex: 10000
+        zIndex: 10000,
+        iconImageHref: 'sprites/destinations.png',
+        iconImageClipRect: [[0, 0], [36, 36]],
+        iconImageOffset: [-18, -19],
+        iconImageSize: [36, 36],
+        projection: ymaps.projection.wgs84Mercator
     });
 
     storage.add('game#route', {

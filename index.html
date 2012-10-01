@@ -9,7 +9,7 @@
         <script type="text/javascript" src="js/lib/jquery-mustache.js"></script>
         <script type="text/javascript" src="js/lib/mustache.js"></script>
         <script type="text/javascript" src="js/lib/pnotify/jquery.pnotify.js"></script>
-        <script type="text/javascript" src="//api-maps.yandex.ru/2.0.17/?mode=debug&lang=ru-RU&load=package.full,overlay.staticGraphics.Polyline,geometry.pixel.LineString,overlay.staticGraphics.Placemark,overlay.interactiveGraphics.Placemark,geometry.pixel.Point,graphics.render.detect.all"></script>
+        <script type="text/javascript" src="//api-maps.yandex.ru/2.0.17/?lang=ru-RU&load=package.full,overlay.staticGraphics.Polyline,geometry.pixel.LineString,overlay.staticGraphics.Placemark,overlay.interactiveGraphics.Placemark,geometry.pixel.Point,graphics.render.detect.all"></script>
         <!--<script type="text/javascript" src="//spereskokov.orina.maps.dev.yandex.net/api2.0/build/index.xml?mode=debug&lang=ru-RU&load=package.full,overlay.staticGraphics.Polyline,geometry.pixel.LineString,overlay.staticGraphics.Placemark,geometry.pixel.Point,graphics.render.detect.all"></script>-->
         <script type="text/javascript" src="js/lib/app/data.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
@@ -127,7 +127,7 @@
 
         <script type="text/html" id="stats">
             <h2>
-                <span class="money text-success">${{money}}</span>&nbsp;&nbsp;&nbsp;<span class="kills text-info">Score: {{score}}</span>&nbsp;&nbsp;&nbsp;<span class="home-health text-warning">♥{{health}}</span>
+                <span class="money text-success">${{money}}</span>&nbsp;&nbsp;&nbsp;<span class="kills text-info">Очков: {{score}}</span>&nbsp;&nbsp;&nbsp;<span class="home-health text-warning">♥{{health}}</span>
             </h2>
         </script>
         <script type="text/html" id="ratings">

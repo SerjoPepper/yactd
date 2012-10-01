@@ -101,7 +101,7 @@ app.data = {
     }],
 
     towers: [{
-        title: 'Cheap&Slow',
+        title: 'Mr. Green',
         cssClass: 'tower1',
         damage: 4,
         speed: 2,
@@ -120,7 +120,7 @@ app.data = {
             offsetX: -10
         }
     }, {
-        title: 'Minigun',
+        title: 'Mr. Red',
         cssClass: 'tower2',
         damage: 1,
         speed: 7,
@@ -139,7 +139,7 @@ app.data = {
             offsetX: -10
         }
     }, {
-        title: 'Snowball',
+        title: 'Mr. Blue',
         cssClass: 'tower3',
         damage: 1,
         speed: 3,
@@ -290,7 +290,7 @@ app.data = {
 
     playerTowerPreset: {
 //        overlayFactory: ymaps.geoObject.overlayFactory.interactiveGraphics,
-        iconImageHref: 'sprites/yac-td-sprites-towers.png',
+        iconImageHref: 'sprites/yac-td-sprites-towers2.png',
         iconImageSize: [40, 45]
     },
 
@@ -306,7 +306,10 @@ app.data = {
 
     holePreset: {
         overlayFactory: ymaps.geoObject.overlayFactory.staticGraphics,
-        iconImageHref: 'img/poiIcon/dps.png',
+        iconImageHref: 'sprites/destinations.png',
+        iconImageClipRect: [[36, 0], [72, 36]],
+        iconImageOffset: [-18, -23],
+        iconImageSize: [36, 36],
         projection: ymaps.projection.wgs84Mercator,
         preset: 'twirl#blueIcon',
         zIndex: 3000

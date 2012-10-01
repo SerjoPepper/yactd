@@ -95,7 +95,7 @@
             var speed = this.speed;
 
             if (this._freezed) {
-                if (this._freezeFps-- == 0) {
+                if (this._freezeFps-- <= 0) {
                     this._freezed = false;
                 }
                 speed = this._freezeSpeed;
