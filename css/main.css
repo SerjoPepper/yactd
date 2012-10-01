@@ -156,7 +156,6 @@ body {
 
 #left-panel .user-menu .places {
     margin: 0px 0px 16px;
-
 }
 
 #left-panel .user-menu .choose-place {
@@ -429,3 +428,5 @@ body {
 #left-panel .table-striped tbody tr:nth-child(even) th {
     background-color: rgba(137, 243, 0, 0.29);
 }
+
+#left-panel .home-health { color: #ff0000; }
