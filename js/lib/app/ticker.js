@@ -1,4 +1,5 @@
 (function (exports) {
+    var K = 2;
 
     function Ticker (interval, callback, ctx) {
         this.interval = this._currentInterval = interval;
@@ -15,7 +16,7 @@
             this.started = true;
             this.timer = setInterval($.proxy(function () {
                 this.callback.call(this.ctx || null);
-            }, this), this._currentInterval);
+            }, this), this._currentInterval / K);
         },
 
         pause: function () {
