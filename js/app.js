@@ -63,6 +63,9 @@ var app = {
     },
 
     createGame: function () {
+        if (this.game) {
+            return;
+        }
 /*      this.controlGameEvents = this.controls.events.group()
             .add('play', this.game.play, this.game)
             .add('pause', this.game.pause, this.game)
