@@ -68,7 +68,7 @@ app.data = {
         count: 6,
         activateTime: 4000,
 
-        hp: 42,
+        hp: 40,
         money: 15,
         offset: [-15, -19]
     }, {
@@ -86,7 +86,7 @@ app.data = {
         count: 8,
         activateTime: 4000,
 
-        hp: 80,
+        hp: 70,
         money: 16,
         offset: [-15, -19]
     }, {
@@ -95,7 +95,7 @@ app.data = {
         count: 2,
         activateTime: 15000,
 
-        hp: 350,
+        hp: 300,
         money: 50,
         offset: [-15, -19]
     }],

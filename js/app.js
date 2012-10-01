@@ -111,6 +111,7 @@ var app = {
 
     destroyGame: function () {
         if (this.game) {
+            this.game.player.removeFromParent();
             this.game.pause();
             this.game.removeFromMap();
             this.gameEvents.removeAll();
