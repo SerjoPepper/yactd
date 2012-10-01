@@ -369,18 +369,28 @@ var app = {
 
     _onMapClick: function (e) {
         if (this._currentBuyTower) {
-            ymaps.geocode(e.get('coordPosition'), { kind: 'house', results: 1 })
+            this._buyTowerPlain(e.get('coordPosition'));
+            /*ymaps.geocode(e.get('coordPosition'), { kind: 'house', results: 1 })
                 .then($.proxy(this._onPointGeocode, this), function () {
                     $.pnotify({ text: 'Попробуйте еще раз', type: 'error' });
-                });
+                });*/
         } else {
             $.pnotify({ text: 'Выберите башню!', type: 'error' });
         }
     },
 
-    _onPointGeocode: function (res) {
+/*    _onPointGeocode: function (res) {
         var point = res.geoObjects.get(0),
             coords = point && point.geometry.getCoordinates();
+        if (coords && !this.game.player.towers[coords.join(',')]) {
+            this._buyingTowerPos = coords;
+            this.renderBuyTower();
+        } else {
+            $.pnotify({ text: 'Выберите другое место', type: 'error' });
+        }
+    },
+    */
+    _buyTowerPlain: function (coords) {
         if (coords && !this.game.player.towers[coords.join(',')]) {
             this._buyingTowerPos = coords;
             this.renderBuyTower();
