@@ -125,7 +125,7 @@ app.data = {
         damage: 1,
         speed: 7,
         radius: 120,
-        price: 150,
+        price: 125,
         preset: {
             iconImageClipRect: [[40, 0], [80, 45]],
             iconImageOffset: [-19, -35],
@@ -144,7 +144,7 @@ app.data = {
         damage: 1,
         speed: 3,
         radius: 100,
-        price: 200,
+        price: 150,
         preset: {
             iconImageClipRect: [[80, 0], [120, 45]],
             iconImageOffset: [-19, -35],
@@ -271,7 +271,7 @@ app.data = {
     }*/],
 
     player: {
-        money: 199
+        money: 250
     },
 
     /*defaultTower: {
