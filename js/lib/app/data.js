@@ -28,8 +28,8 @@ app.data = {
 
     mobs: [{
         cssClass: 'mob1',
-        speed: 43,
-        count: 10,
+        speed: 55,
+        count: 5,
         activateTime: 3800,
 
         hp: 10,
@@ -37,8 +37,8 @@ app.data = {
         offset: [-15, -19]
     }, {
         cssClass: 'mob2',
-        speed: 60,
-        count: 20,
+        speed: 70,
+        count: 10,
         activateTime: 1500,
 
         hp: 8,
@@ -55,8 +55,8 @@ app.data = {
         offset: [-15, -19]
     }, {
         cssClass: 'mob4',
-        speed: 27,
-        count: 15,
+        speed: 30,
+        count: 8,
         activateTime: 7000,
 
         hp: 48,
@@ -64,8 +64,8 @@ app.data = {
         offset: [-15, -19]
     }, {
         cssClass: 'mob5',
-        speed: 45,
-        count: 12,
+        speed: 53,
+        count: 6,
         activateTime: 4000,
 
         hp: 36,
@@ -73,8 +73,8 @@ app.data = {
         offset: [-15, -19]
     }, {
         cssClass: 'mob6',
-        speed: 68,
-        count: 25,
+        speed: 73,
+        count: 15,
         activateTime: 1300,
 
         hp: 18,
@@ -82,8 +82,8 @@ app.data = {
         offset: [-15, -19]
     }, {
         cssClass: 'mob7',
-        speed: 50,
-        count: 15,
+        speed: 55,
+        count: 8,
         activateTime: 4000,
 
         hp: 60,
@@ -91,8 +91,8 @@ app.data = {
         offset: [-15, -19]
     }, {
         cssClass: 'mob8',
-        speed: 20,
-        count: 3,
+        speed: 40,
+        count: 2,
         activateTime: 15000,
 
         hp: 250,
