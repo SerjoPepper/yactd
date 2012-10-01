@@ -2,7 +2,7 @@
 
     function Wave (params) {
         var mobData = app.data.mobs[params.mobType],
-            hardness = params.hardness * (Math.random() * 0.8 + 1),
+            hardness = params.hardness * (Math.random() * 0.7 + 1),
             pathCoords = params.pathCoords,
             mobsCount = mobData.count;
 
