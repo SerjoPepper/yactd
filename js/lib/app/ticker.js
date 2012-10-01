@@ -1,5 +1,5 @@
 (function (exports) {
-    var K = 2;
+    var K = 1.5;
 
     function Ticker (interval, callback, ctx) {
         this.interval = this._currentInterval = interval;
