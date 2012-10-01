@@ -35,6 +35,8 @@ var app = {
             zoom: 16,
             type: "yandex#map"
         });
+        this.map.controls.add('typeSelector')
+                    .add('zoomControl');
         this.shadowsPane = app.map.panes.get('shadows');
         this.mapProjection = this.map.options.get('projection');
         $.Mustache.addFromDom();
