@@ -412,6 +412,7 @@ body {
 
 #left-panel .btn-large {
     border-radius: 3px;
+    margin-top: 10px;
 }
 
 #left-panel input:focus {
